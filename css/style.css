@@ -13,6 +13,7 @@ body {
   --color-sent-message: #d5f9ba;
   --color-notification: #8edafc;
   --color-searchbar: #fafafa;
+  --color-footer-right: #f3eeea;
   --my-bg-color: linear-gradient(
     to bottom,
     #009688 0%,
@@ -83,12 +84,17 @@ p {
   background-image: url(../img/mine.jpg);
 }
 #footer-right {
+  background-color: var(--color-footer-right);
   height: 60px;
 }
 .h0 {
   height: 0;
 }
 .sent {
+  width: 30%;
+  background-color: var(--color-sent-message);
 }
 .received {
+  background-color: var(--color-white);
+  width: 30%;
 }
