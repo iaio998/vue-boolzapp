@@ -31,7 +31,7 @@ body {
   font-size: 1.3em;
   color: var(--color-notification);
 }
-#header {
+#header-left {
   background-color: var(--color-headers);
 }
 #notifications {
@@ -44,13 +44,17 @@ body {
   background-color: var(--color-contact-hover);
   padding: 10px;
 }
-#last-mex {
+.last-mex {
   font-size: 0.8em;
   color: var(--color-text-grey);
 }
-#last-access {
+.last-access {
   font-size: 0.7em;
   color: var(--color-text-grey);
+}
+.last-access-right {
+  font-size: 0.7em;
+  color: var(--color-drak-grey);
 }
 .avatar {
   width: 50px;
@@ -75,7 +79,11 @@ p {
 #left-side {
   background-color: var(--color-white);
 }
-#right-side {
+#main-right {
+  background-image: url(../img/mine.jpg);
+}
+#footer-right {
+  height: 60px;
 }
 .h0 {
   height: 0;
