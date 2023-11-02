@@ -12,6 +12,7 @@ body {
   --color-light-icons: #b1b1b1;
   --color-sent-message: #d5f9ba;
   --color-notification: #8edafc;
+  --color-searchbar: #fafafa;
   --my-bg-color: linear-gradient(
     to bottom,
     #009688 0%,
@@ -26,6 +27,19 @@ body {
   background: var(--my-bg-color);
   padding: 20px;
 }
+#bell {
+  font-size: 1.3em;
+  color: var(--color-notification);
+}
+#header {
+  background-color: var(--color-headers);
+}
+#notifications {
+  background-color: var(--color-notification);
+}
+#searchbar {
+  background-color: var(--color-searchbar);
+}
 .avatar {
   width: 50px;
   height: 50px;
@@ -36,16 +50,6 @@ i {
 }
 p {
   margin: 0;
-}
-#bell {
-  font-size: 1.3em;
-  color: var(--color-notification);
-}
-.header {
-  background-color: var(--color-headers);
-}
-.notifications {
-  background-color: var(--color-notification);
 }
 .circle {
   width: 50px;

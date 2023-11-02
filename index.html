@@ -32,7 +32,7 @@
                     <div class="row h-100 flex-column flex-nowrap">
 
                         <!-- UTENTE CHE USA L'APPLICAZIONE -->
-                        <div class="col-12 header py-2 d-flex justify-content-between align-items-center">
+                        <div id="header" class="col-12 py-2 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center  ">
                                 <img src="img/avatar_io.jpg" alt="" class="avatar">
                                 <p class="fw-bold px-1">Sofia</p>
@@ -43,18 +43,30 @@
                                 <i class="fa-solid fa-ellipsis-vertical fs-4 mx-2"></i>
                             </div>
                         </div>
-                        <div class="col-12 py-2 notifications d-flex align-items-center">
+
+                        <!-- NOTIFICATIONS -->
+                        <div id="notifications" class="col-12 py-2 d-flex align-items-center">
                             <div class="circle">
                                 <i id="bell" class="fa-solid fa-bell-slash"></i>
                             </div>
-                            <div class="px-2 lh-1">
+                            <div class="px-2 lh-sm">
                                 <p class="fw-bold">Ricevi notifiche di nuovi messaggi</p>
                                 <p style="font-size: 0.8em; text-decoration: underline;">Attiva notifiche desktop</p>
                             </div>
                         </div>
-                        <div class="col-12">
-                            Search
+
+                        <!-- SEARCHBAR -->
+                        <div id="searchbar" class="col-12 py-2">
+                            <div class="input-group my-2">
+                                <span class="input-group-text" id="basic-addon1">
+                                    <i class="fa-solid fa-magnifying-glass top-icon"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                                    aria-label="Username" aria-describedby="basic-addon1">
+                            </div>
                         </div>
+
+                        <!-- CONTATTI -->
                         <div class="col-12 flex-grow-1 overflow-y-auto h0">
                             Elenco contatti
                         </div>
