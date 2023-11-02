@@ -40,6 +40,18 @@ body {
 #searchbar {
   background-color: var(--color-searchbar);
 }
+.chat {
+  background-color: var(--color-contact-hover);
+  padding: 10px;
+}
+#last-mex {
+  font-size: 0.8em;
+  color: var(--color-text-grey);
+}
+#last-access {
+  font-size: 0.7em;
+  color: var(--color-text-grey);
+}
 .avatar {
   width: 50px;
   height: 50px;
@@ -60,8 +72,10 @@ p {
   text-align: center;
   background-color: var(--color-white);
 }
-.contacts {
+#left-side {
   background-color: var(--color-white);
+}
+#right-side {
 }
 .h0 {
   height: 0;

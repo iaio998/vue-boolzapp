@@ -28,7 +28,7 @@
     <div id="app">
         <div class="container border h-100">
             <div class="row flex-nowrap h-100">
-                <div class="col-12 col-md-4 contacts">
+                <div id="left-side" class="col-12 col-md-4">
                     <div class="row h-100 flex-column flex-nowrap">
 
                         <!-- UTENTE CHE USA L'APPLICAZIONE -->
@@ -67,12 +67,22 @@
                         </div>
 
                         <!-- CONTATTI -->
-                        <div class="col-12 flex-grow-1 overflow-y-auto h0">
-                            Elenco contatti
+                        <div id="contacts" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
+                            <div class="d-flex justify-content-between chat">
+                                <div class="d-flex">
+                                    <img src="img/avatar_1.jpg" alt="" class="avatar">
+                                    <div class="px-2">
+                                        <p class="fw-bold">Michele</p>
+                                        <p id="last-mex" style="font-size: 0.8em;">Ultimo messaggio inviato
+                                        </p>
+                                    </div>
+                                </div>
+                                <p id="last-access">12:00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-8">
+                <div id="right-side" class="col-12 col-md-8">
                     2
                 </div>
             </div>
