@@ -5,7 +5,7 @@ const { createApp } = Vue;
 const miaApp = createApp({
   data() {
     return {
-      contacs: contactList,
+      contacts: contactList,
     };
   },
   methods: {},

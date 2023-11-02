@@ -42,7 +42,6 @@ body {
   background-color: var(--color-searchbar);
 }
 .chat {
-  background-color: var(--color-contact-hover);
   padding: 10px;
 }
 .last-mex {
@@ -50,7 +49,7 @@ body {
   color: var(--color-text-grey);
 }
 .last-access {
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: var(--color-text-grey);
 }
 .last-access-right {
@@ -71,7 +70,6 @@ p {
 .circle {
   width: 50px;
   height: 50px;
-
   border-radius: 50%;
   line-height: 50px;
   text-align: center;

@@ -68,16 +68,18 @@
 
                         <!-- CONTATTI -->
                         <div id="contacts" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
-                            <div class="d-flex justify-content-between chat">
+                            <div class="d-flex justify-content-between chat" v-for="contact in contacts"
+                                :key="contact.id">
                                 <div class="d-flex">
-                                    <img src="img/avatar_1.jpg" alt="" class="avatar">
+                                    <img :src="contact.avatar" :alt="contact.name" class="avatar">
                                     <div class="px-2">
-                                        <p class="fw-bold">Michele</p>
-                                        <p class="last-mex">Ultimo messaggio inviato
+                                        <p class="fw-bold">{{contact.name}}</p>
+                                        <p class="last-mex">{{contact.messages[contact.messages.length - 1].message}}
+                                        </p>
                                         </p>
                                     </div>
                                 </div>
-                                <p class="last-access">12:00</p>
+                                <p class="last-access">{{contact.messages[contact.messages.length-1].date}}</p>
                             </div>
                         </div>
                     </div>
