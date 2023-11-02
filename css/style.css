@@ -1,7 +1,6 @@
 body {
   font-family: "Lato", sans-serif;
 }
-
 :root {
   --color-white: #ffffff;
   --color-dark-text: #161012;
@@ -43,6 +42,13 @@ body {
 }
 .chat {
   padding: 10px;
+}
+.chat:hover {
+  background-color: var(--color-contact-hover);
+  cursor: pointer;
+}
+.active {
+  background-color: var(--color-contact-hover);
 }
 .last-mex {
   font-size: 0.8em;

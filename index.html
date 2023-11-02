@@ -68,8 +68,8 @@
 
                         <!-- CONTATTI -->
                         <div id="contacts" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
-                            <div class="d-flex justify-content-between chat" v-for="contact in contacts"
-                                :key="contact.id">
+                            <div class="d-flex justify-content-between chat" v-for="(contact, index) in contacts"
+                                :key="contact.id" @click="clicked(index)">
                                 <div class="d-flex">
                                     <img :src="contact.avatar" :alt="contact.name" class="avatar">
                                     <div class="px-2">
@@ -90,9 +90,9 @@
                         <!-- HEADER RIGHT -->
                         <div id="header-left" class="col-12 py-2 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center  ">
-                                <img src="img/avatar_1.jpg" alt="" class="avatar">
+                                <img :src="contacts[activeIndex].avatar" alt="" class="avatar">
                                 <div class="px-2">
-                                    <p class="fw-bold ">Michele</p>
+                                    <p class="fw-bold ">{{contacts[activeIndex].name}}</p>
                                     <p class="last-access-right fw-bold">Ultimo accesso oggi alle 12:00</p>
                                 </div>
                             </div>
@@ -104,9 +104,9 @@
                         </div>
                         <!-- MAIN RIGHT SIDE -->
                         <div id="main-right" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
-                            <div class="p-5">
+                            <div class="p-5" v-for="mex in contacts[activeIndex].message" :class="mex.status">
                                 <div class="text-end">
-                                    <p class="sent text-start d-inline-block my-2 p-2 rounded-3 text-break">ah ok</p>
+                                    <p class="sent text-start d-inline-block my-2 p-2 rounded-3 text-break">{{}}</p>
                                 </div>
                                 <div>
                                     <p

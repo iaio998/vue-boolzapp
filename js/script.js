@@ -6,9 +6,17 @@ const miaApp = createApp({
   data() {
     return {
       contacts: contactList,
+      activeIndex: 0,
     };
   },
-  methods: {},
+  methods: {
+    getIndex(id, array) {
+      return array.finIndex((el) => el.id === id);
+    },
+    clicked(index) {
+      this.activeIndex = index;
+    },
+  },
   computed: {},
 });
 
