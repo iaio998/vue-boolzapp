@@ -26,6 +26,42 @@ body {
   background: var(--my-bg-color);
   padding: 20px;
 }
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+i {
+  color: var(--color-light-icons);
+}
+p {
+  margin: 0;
+}
+#bell {
+  font-size: 1.3em;
+  color: var(--color-notification);
+}
+.header {
+  background-color: var(--color-headers);
+}
+.notifications {
+  background-color: var(--color-notification);
+}
+.circle {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+  line-height: 50px;
+  text-align: center;
+  background-color: var(--color-white);
+}
+.contacts {
+  background-color: var(--color-white);
+}
+.h0 {
+  height: 0;
+}
 .sent {
 }
 .received {
