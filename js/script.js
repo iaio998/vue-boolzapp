@@ -1,5 +1,5 @@
 import { contactList } from "./data.js";
-
+const dt = luxon.DateTime;
 const { createApp } = Vue;
 
 const miaApp = createApp({
@@ -8,6 +8,7 @@ const miaApp = createApp({
       contacts: contactList,
       activeIndex: 0,
       msg: "",
+      searching: "",
     };
   },
   methods: {
@@ -17,17 +18,17 @@ const miaApp = createApp({
     clicked(index) {
       this.activeIndex = index;
     },
-    selectContact(id) {
-      index = getIndex(id, this.contacts);
-      if (index !== -1) {
-        this.activeIndex = index;
-      }
-    },
+    // selectContact(id) {
+    //   index = getIndex(id, this.contacts);
+    //   if (index !== -1) {
+    //     this.activeIndex = index;
+    //   }
+    // },
     sendMsg() {
       if (this.msg !== "") {
         const msg = this.msg;
         this.contacts[this.activeIndex].messages.push({
-          date: new Date(),
+          date: dt.now().setLocale("it").toLocaleString(dt.TIME_SIMPLE),
           message: msg,
           status: "sent",
         });
@@ -35,13 +36,17 @@ const miaApp = createApp({
         setTimeout(
           () =>
             this.contacts[this.activeIndex].messages.push({
-              date: new Date(),
+              date: dt.now().setLocale("it").toLocaleString(dt.TIME_SIMPLE),
               message: "ok",
               status: "received",
             }),
           1000
         );
       }
+    },
+    searchFilter() {
+      const filtered = this.contacts.name.filter();
+      console.log(filtered);
     },
     // getLastMessage(id) {
     //   const contact = this.contacts.find((contact) => contact.id === id);

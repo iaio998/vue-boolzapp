@@ -169,3 +169,6 @@ export const contactList = [
     ],
   },
 ];
+export function getIndex(id, array) {
+  return array.findIndex((el) => el.id === id);
+}

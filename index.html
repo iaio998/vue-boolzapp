@@ -62,7 +62,7 @@
                                     <i class="fa-solid fa-magnifying-glass top-icon"></i>
                                 </span>
                                 <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                                    aria-label="Username" aria-describedby="basic-addon1">
+                                    aria-describedby="basic-addon1" v-model="searching">
                             </div>
                         </div>
 
@@ -88,12 +88,13 @@
 
                     <div class="row h-100 flex-column flex-nowrap">
                         <!-- HEADER RIGHT -->
-                        <div id="header-left" class="col-12 py-2 d-flex justify-content-between align-items-center">
+                        <div id="header-right" class="col-12 py-2 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center  ">
                                 <img :src="contacts[activeIndex].avatar" :alt="activeContact.name" class="avatar">
                                 <div class="px-2">
                                     <p class="fw-bold ">{{activeContact.name}}</p>
-                                    <p class="last-access-right fw-bold">Ultimo accesso oggi alle 12:00</p>
+                                    <p class="last-access-right fw-bold">
+                                        {{activeContact.messages[activeContact.messages.length-1].date}}</p>
                                 </div>
                             </div>
                             <div>
@@ -104,14 +105,14 @@
                         </div>
                         <!-- MAIN RIGHT SIDE -->
                         <div id="main-right" class="col-12 flex-grow-1 overflow-y-auto p-5 h0">
-                            <div v-for="mex in activeContact.messages" :class="mex.status" :key="mex.id">
-                                <div class="lh-sm text-start p-2" :class="mex.status">
-                                    <p>{{ mex.message }}</p>
-
-                                    <span class="hour my-text-grey text-end">{{
+                            <div v-for="mex in activeContact.messages" :class="mex.status" :key="mex.id" class="">
+                                <div class="lh-sm text-start px-4 py-2 position-relative" :class="mex.status">
+                                    <p class="p- text-break">{{ mex.message }}</p>
+                                    <span class="hour">{{
                                         mex.date }}</span>
 
                                 </div>
+
                             </div>
 
                         </div>
@@ -132,6 +133,7 @@
 
 
     <!-- My JS -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="js/script.js" type="module"></script>
 </body>

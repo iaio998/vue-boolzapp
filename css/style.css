@@ -34,6 +34,10 @@ body {
 #header-left {
   background-color: var(--color-headers);
 }
+#header-right {
+  border-left: 1px solid var(--color-text-grey);
+  background-color: var(--color-headers);
+}
 #notifications {
   background-color: var(--color-notification);
 }
@@ -120,4 +124,7 @@ p {
 }
 .hour {
   font-size: 0.5em;
+  position: absolute;
+  bottom: 2px;
+  right: 7px;
 }
