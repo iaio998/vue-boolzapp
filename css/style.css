@@ -95,10 +95,25 @@ p {
   height: 0;
 }
 .sent {
-  width: 30%;
-  background-color: var(--color-sent-message);
+  text-align: end;
 }
 .received {
+  text-align: start;
+}
+.sent div {
+  max-width: 30%;
+  background-color: var(--color-sent-message);
+  display: inline-block;
+  margin: 10px 5px;
+  border-radius: 15px;
+}
+.received div {
   background-color: var(--color-white);
-  width: 30%;
+  max-width: 30%;
+  display: inline-block;
+  margin: 10px 5px;
+  border-radius: 15px;
+}
+.hour {
+  font-size: 0.5em;
 }

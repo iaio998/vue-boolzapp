@@ -69,7 +69,7 @@
                         <!-- CONTATTI -->
                         <div id="contacts" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
                             <div class="d-flex justify-content-between chat" v-for="(contact, index) in contacts"
-                                :key="contact.id" @click="clicked(index)">
+                                :key="contact.id" @click="clicked(index)" :class="{'active': index===activeIndex}">
                                 <div class="d-flex">
                                     <img :src="contact.avatar" :alt="contact.name" class="avatar">
                                     <div class="px-2">
@@ -103,10 +103,19 @@
                             </div>
                         </div>
                         <!-- MAIN RIGHT SIDE -->
-                        <div id="main-right" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
-                            <div class="p-5" v-for="mex in contacts[activeIndex].message" :class="mex.status">
+                        <div id="main-right" class="col-12 flex-grow-1 overflow-y-auto p-5 h0">
+                            <div v-for="mex in contacts[activeIndex].messages" :class="mex.status" :key="mex.id">
+                                <div class="lh-1 text-start p-2" :class="mex.status">
+                                    <p>{{ mex.message }}</p>
+
+                                    <span class="hour my-text-grey text-end">{{
+                                        mex.date }}</span>
+
+                                </div>
+                            </div>
+                            <!-- <div class="p-5">
                                 <div class="text-end">
-                                    <p class="sent text-start d-inline-block my-2 p-2 rounded-3 text-break">{{}}</p>
+                                    <p class="sent text-start d-inline-block my-2 p-2 rounded-3 text-break">ah ok</p>
                                 </div>
                                 <div>
                                     <p
@@ -114,7 +123,7 @@
                                         ah ok
                                     </p>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
                         <!-- FOOTER RIGHT -->
