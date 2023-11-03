@@ -114,6 +114,10 @@ p {
   margin: 10px 5px;
   border-radius: 15px;
 }
+.fa-paper-plane:hover {
+  color: var(--color-notification);
+  transform: scale(1.1);
+}
 .hour {
   font-size: 0.5em;
 }

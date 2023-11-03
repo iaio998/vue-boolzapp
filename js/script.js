@@ -24,22 +24,24 @@ const miaApp = createApp({
       }
     },
     sendMsg() {
-      const msg = this.msg;
-      this.contacts[this.activeIndex].messages.push({
-        date: new Date(),
-        message: msg,
-        status: "sent",
-      });
-      this.msg = "";
-      setTimeout(
-        () =>
-          this.contacts[this.activeIndex].messages.push({
-            date: new Date(),
-            message: "ok",
-            status: "received",
-          }),
-        1000
-      );
+      if (this.msg !== "") {
+        const msg = this.msg;
+        this.contacts[this.activeIndex].messages.push({
+          date: new Date(),
+          message: msg,
+          status: "sent",
+        });
+        this.msg = "";
+        setTimeout(
+          () =>
+            this.contacts[this.activeIndex].messages.push({
+              date: new Date(),
+              message: "ok",
+              status: "received",
+            }),
+          1000
+        );
+      }
     },
     // getLastMessage(id) {
     //   const contact = this.contacts.find((contact) => contact.id === id);
