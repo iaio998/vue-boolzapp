@@ -90,9 +90,9 @@
                         <!-- HEADER RIGHT -->
                         <div id="header-left" class="col-12 py-2 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center  ">
-                                <img :src="contacts[activeIndex].avatar" alt="" class="avatar">
+                                <img :src="contacts[activeIndex].avatar" :alt="activeContact.name" class="avatar">
                                 <div class="px-2">
-                                    <p class="fw-bold ">{{contacts[activeIndex].name}}</p>
+                                    <p class="fw-bold ">{{activeContact.name}}</p>
                                     <p class="last-access-right fw-bold">Ultimo accesso oggi alle 12:00</p>
                                 </div>
                             </div>
@@ -104,8 +104,8 @@
                         </div>
                         <!-- MAIN RIGHT SIDE -->
                         <div id="main-right" class="col-12 flex-grow-1 overflow-y-auto p-5 h0">
-                            <div v-for="mex in contacts[activeIndex].messages" :class="mex.status" :key="mex.id">
-                                <div class="lh-1 text-start p-2" :class="mex.status">
+                            <div v-for="mex in activeContact.messages" :class="mex.status" :key="mex.id">
+                                <div class="lh-sm text-start p-2" :class="mex.status">
                                     <p>{{ mex.message }}</p>
 
                                     <span class="hour my-text-grey text-end">{{
@@ -113,23 +113,13 @@
 
                                 </div>
                             </div>
-                            <!-- <div class="p-5">
-                                <div class="text-end">
-                                    <p class="sent text-start d-inline-block my-2 p-2 rounded-3 text-break">ah ok</p>
-                                </div>
-                                <div>
-                                    <p
-                                        class="received d-inline-block my-2 p-2 rounded-3 text-break d-flex justify-content-between align-items-baseline">
-                                        ah ok
-                                    </p>
-                                </div>
-                            </div> -->
 
                         </div>
                         <!-- FOOTER RIGHT -->
                         <div id="footer-right" class="col-12 d-flex align-items-center justify-content-evenly">
                             <i class="fa-regular fa-face-smile dark-grey fs-4"></i>
-                            <input type="text" class="w-75 border-0 p-2 rounded-2" placeholder="Scrivi un messaggio">
+                            <input type="text" class="w-75 border-0 p-2 rounded-2" placeholder="Scrivi un messaggio"
+                                v-model="msg" @keyup.enter="sendMsg()">
                             <i class="fa-solid fa-microphone dark-grey fs-4"></i>
                         </div>
                     </div>
