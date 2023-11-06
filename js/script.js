@@ -9,6 +9,8 @@ const miaApp = createApp({
       activeIndex: 0,
       msg: "",
       searching: "",
+      messageIndex: null,
+      showChat: false,
     };
   },
   methods: {
@@ -49,6 +51,16 @@ const miaApp = createApp({
         return el.name.toLowerCase().includes(this.searching.toLowerCase());
       });
       return filtered;
+    },
+    selectIndex(index) {
+      if (this.messageIndex !== index) {
+        this.messageIndex = index;
+      } else {
+        this.messageIndex = null;
+      }
+    },
+    deleteMex(index) {
+      this.activeContact.messages.splice(index, 1);
     },
     // getLastMessage(id) {
     //   const contact = this.contacts.find((contact) => contact.id === id);

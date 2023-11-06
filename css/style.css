@@ -109,14 +109,14 @@ p {
   background-color: var(--color-sent-message);
   display: inline-block;
   margin: 10px 5px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .received div {
   background-color: var(--color-white);
   max-width: 30%;
   display: inline-block;
   margin: 10px 5px;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .fa-paper-plane:hover {
   color: var(--color-notification);
@@ -127,4 +127,17 @@ p {
   position: absolute;
   bottom: 2px;
   right: 7px;
+}
+#dropdown {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  margin: 0;
+}
+#dropdown:hover {
+  cursor: pointer;
+}
+
+#dropdown i {
+  color: var(--color-dark-grey);
 }
