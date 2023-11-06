@@ -69,33 +69,35 @@
                         <!-- CONTATTI -->
                         <div id="contacts" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
                             <div class="d-flex justify-content-between chat" v-for="(contact, index) in searchFilter()"
-                                :key="contact.id" @click="clicked(index)" :class="{'active': index===activeIndex}">
+                                :key="contact.id" @click="activeIndex = contact.id"
+                                :class="{'active': isActive(contact.id)}">
                                 <div class="d-flex">
                                     <img :src="contact.avatar" :alt="contact.name" class="avatar">
                                     <div class="px-2">
                                         <p class="fw-bold">{{contact.name}}</p>
-                                        <p class="last-mex">{{contact.messages[contact.messages.length - 1].message}}
-                                        </p>
+                                        <p class="last-mex">{{getLastMessage(contact.id)}}
                                         </p>
                                     </div>
                                 </div>
-                                <p class="last-access">{{contact.messages[contact.messages.length-1].date}}</p>
+                                <p class="last-access">{{returnHourMinute(getLastAccess(contact.id))}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="right-side" class="col-12 col-md-8 d-none d-md-block">
-
-                    <div class="row h-100 flex-column flex-nowrap">
+                    <!-- <div v-if="activeIndex===null">
+                        <img src="https://picsum.photos/id/237/200/300" alt="">
+                    </div> -->
+                    <div v-else class="row h-100 flex-column flex-nowrap">
 
                         <!-- HEADER RIGHT -->
                         <div id="header-right" class="col-12 py-2 d-flex justify-content-between align-items-center">
                             <div class="d-flex align-items-center  ">
-                                <img :src="contacts[activeIndex].avatar" :alt="activeContact.name" class="avatar">
+                                <img :src="contacts[contactIndex].avatar" alt="activeContact.name" class="avatar">
                                 <div class="px-2">
-                                    <p class="fw-bold ">{{activeContact.name}}</p>
+                                    <p class="fw-bold ">{{contacts[contactIndex].name}}</p>
                                     <p class="last-access-right fw-bold">
-                                        {{activeContact.messages[activeContact.messages.length-1].date}}</p>
+                                        {{returnHourMinute(lastDate)}}</p>
                                 </div>
                             </div>
                             <div>
@@ -107,13 +109,12 @@
 
                         <!-- MAIN RIGHT SIDE -->
                         <div id="main-right" class="col-12 flex-grow-1 overflow-y-auto p-5 h0">
-                            <div v-for="(mex, index) in activeContact.messages" :class="mex.status" :key="mex.id"
-                                class="">
+                            <div v-for="(mex, index) in contacts[contactIndex].messages" :class="mex.status"
+                                :key="mex.id">
                                 <div id="messages" class="lh-sm text-start px-4 py-2 position-relative"
                                     :class="mex.status">
-                                    <p class="p- text-break">{{mex.message}}</p>
-                                    <span class="hour">{{
-                                        mex.date }}</span>
+                                    <p class="p- text-break">{{contacts[contactIndex].messages[index].message}}</p>
+                                    <span class="hour">{{returnHourMinute(lastDate)}}</span>
                                     <div id="dropdown" class="dropdown">
                                         <i class="fa-solid fa-caret-down" data-bs-toggle="dropdown"
                                             @click="selectIndex(index)">
