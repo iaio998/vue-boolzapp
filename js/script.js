@@ -45,8 +45,10 @@ const miaApp = createApp({
       }
     },
     searchFilter() {
-      const filtered = this.contacts.name.filter();
-      console.log(filtered);
+      const filtered = this.contacts.filter((el) => {
+        return el.name.toLowerCase().includes(this.searching.toLowerCase());
+      });
+      return filtered;
     },
     // getLastMessage(id) {
     //   const contact = this.contacts.find((contact) => contact.id === id);
@@ -70,6 +72,9 @@ const miaApp = createApp({
   computed: {
     activeContact() {
       return this.contacts[this.activeIndex];
+    },
+    contactIndex() {
+      return getIndex(this.activeIndex, this.contacts);
     },
     // lastDate() {
     //   const len = this.activeContact.messages.length;

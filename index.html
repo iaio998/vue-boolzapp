@@ -68,7 +68,7 @@
 
                         <!-- CONTATTI -->
                         <div id="contacts" class="col-12 flex-grow-1 overflow-y-auto p-0 h0">
-                            <div class="d-flex justify-content-between chat" v-for="(contact, index) in contacts"
+                            <div class="d-flex justify-content-between chat" v-for="(contact, index) in searchFilter()"
                                 :key="contact.id" @click="clicked(index)" :class="{'active': index===activeIndex}">
                                 <div class="d-flex">
                                     <img :src="contact.avatar" :alt="contact.name" class="avatar">
